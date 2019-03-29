@@ -1,14 +1,17 @@
-# backup files
 *~
 *.o
 *.a
 *.so
+*.so.*
 *.out
 *.vec
 *.gch
 *.sav
 *.profraw
 *.profdata
-formal-analysis/*
-man/3monocypher/*.html
+tests/formal-analysis/*
+tests/formal-analysis
+*.tar.gz
+monocypher-*
+doc/html/*.html
 tests/vectors.h

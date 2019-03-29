@@ -7,7 +7,7 @@ Designers
                 and Zooko Wilcox-O'Hearn
 - **Argon2:**   Alex Biryukov, Daniel Dinu, and Dmitry Khovratovich
 - **X25519:**   Daniel J. Bernstein
-- **edDSA:**    Daniel J. Bernstein, Bo-Yin Yang, Niels Duif, Peter
+- **EdDSA:**    Daniel J. Bernstein, Bo-Yin Yang, Niels Duif, Peter
                 Schwabe, and Tanja Lange
 
 Implementors
@@ -19,8 +19,9 @@ Implementors
 - **Argon2i:**  Loup Vaillant, implemented from spec.
 - **X25519:**   Daniel J. Bernstein, taken and packaged from SUPERCOP
                 ref10.
-- **edDSA:**    Daniel J. Bernstein, taken and adapted from SUPERCOP
-                ref10 and TweetNaCl.
+- **EdDSA:**    Daniel J. Bernstein, taken and adapted from SUPERCOP
+                ref10 and TweetNaCl.  (With significant speed tweaks).
+
 
 Test suite
 ----------
@@ -28,10 +29,27 @@ Test suite
 Designed and implemented by Loup Vaillant, using _libsodium_ (by many
 authors), and _ed25519-donna_ (by Andrew Moon —floodyberry).
 
+Manual
+------
+
+Loup Vaillant, Fabio Scotoni, and Michael Savage.
+
+Loup Vaillant did a first draft, Fabio Scotoni rewrote the manual into
+proper man pages, and Michael Savage did extensive editing and
+proofreading.
+
 Thanks
 ------
 
-Mike Pechkin and André Maroneze for finding bugs in earlier versions,
-and Andrew Moon for clarifying carry propagation in modular
-arithmetic.
+Mike Pechkin and André Maroneze found bugs in earlier versions of
+Monocypher.
 
+Andrew Moon clarified carry propagation in modular arithmetic.
+
+Fabio Scotoni provided much needed advice about testing, interface, and
+above all, packaging.
+
+Mike Hamburg explained comb algorithms, including the signed
+all-bits-set comb described in his 2012 paper, Fast and compact
+elliptic-curve cryptography.  This made EdDSA signatures over twice as
+fast.

@@ -1,16 +1,8 @@
 #! /bin/sh
-echo
-echo "Run & record coverage"
-echo "====================="
-"./$1"
 
-echo
-echo "Generate report"
-echo "==============="
-llvm-profdata-3.8 merge default.profraw -o all.profdata
+set -e
 
-
-echo
-echo "Show report"
-echo "==========="
-llvm-cov show "./$1" -instr-profile=all.profdata
+make clean
+make test CC="clang -std=c99" CFLAGS="-fprofile-instr-generate -fcoverage-mapping"
+llvm-profdata merge default.profraw -o all.profdata
+llvm-cov show -instr-profile=all.profdata "./test.out"
